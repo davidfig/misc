@@ -121,7 +121,7 @@ if (typeof define === 'function' && define.amd)
     define(function()
     {
         return {
-            Angle: Angle
+            Misc: Misc
         };
     });
 }
@@ -129,11 +129,11 @@ if (typeof define === 'function' && define.amd)
 // add support for CommonJS libraries such as browserify.
 if (typeof exports !== 'undefined')
 {
-    module.exports = Angle;
+    module.exports = Misc;
 }
 
 // define globally in case AMD is not available or available but not used
 if (typeof window !== 'undefined')
 {
-    window.Angle = Angle;
+    window.Misc = Misc;
 }
