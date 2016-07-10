@@ -103,6 +103,30 @@ function clamp(n, min, max)
 	return Math.min(Math.max(n, min), max);
 }
 
+// blend the percent of color2 into color1
+function blend(percent, color1, color2)
+{
+    if (percent === 0)
+    {
+        return color1;
+    }
+    if (percent === 1)
+    {
+        return color2;
+    }
+    var r1 = color1 >> 16;
+    var g1 = color1 >> 8 & 0x0000ff;
+    var b1 = color1 & 0x0000ff;
+    var r2 = color2 >> 16;
+    var g2 = color2 >> 8 & 0x0000ff;
+    var b2 = color2 & 0x0000ff;
+    var percent1 = 1 - percent;
+    var r = percent1 * r1 + percent * r2;
+    var g = percent1 * g1 + percent * g2;
+    var b = percent1 * b1 + percent * b2;
+    return r << 16 | g << 8 | b;
+}
+
 var Misc = {
     difference: difference,
     arraySmallest: arraySmallest,
@@ -112,7 +136,8 @@ var Misc = {
     wordCount: wordCount,
     aboutEqual: aboutEqual,
     uniqueArray: uniqueArray,
-    clamp: clamp
+    clamp: clamp,
+    blend: blend
 };
 
 // add support for AMD (Asynchronous Module Definition) libraries such as require.js.
