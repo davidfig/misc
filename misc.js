@@ -11,6 +11,33 @@ function difference(a, b)
     return (a > b)? a - b : b - a;
 }
 
+// returns {most, least, all[]} about array grouped by value
+function arrayCount(a)
+{
+    function addIndex(index)
+    {
+        for (var i = 0; i < result.length; i++)
+        {
+            if (result[i].index === index)
+            {
+                result[i].count++;
+                return;
+            }
+        }
+        result.push({index: index, count: 1});
+    }
+
+    var result = [];
+    for (var i = 0; i < a.length; i++)
+    {
+        addToIndex(a[i]);
+    }
+    result.sort(function(a, b) {
+        return a.count - b.count;
+    });
+    return {most: result[result.length - 1].index, least: result[0].index, all: result}
+}
+
 // finds the smallest number in an array
 function arraySmallest(a)
 {
@@ -130,6 +157,7 @@ function blend(percent, color1, color2)
 var Misc = {
     difference: difference,
     arraySmallest: arraySmallest,
+    arrayCount: arrayCount,
     sign: sign,
     preciseRound: preciseRound,
     fontSize: fontSize,
