@@ -54,6 +54,12 @@ function sign(x)
     return (x >= 0) ? 1 : -1;
 }
 
+// returns whether a and b have the same sign or both equal 0
+function sameSign(a, b)
+{
+    return (a < 0 && b < 0) || (a > 0 && b > 0) || (a === 0 && b === 0);
+}
+
 // round number to certain number of decimals
 function preciseRound(num, decimals)
 {
@@ -159,6 +165,7 @@ var Misc = {
     arraySmallest: arraySmallest,
     arrayCount: arrayCount,
     sign: sign,
+    sameSign: sameSign,
     preciseRound: preciseRound,
     fontSize: fontSize,
     wordCount: wordCount,
