@@ -91,8 +91,14 @@ class Misc
         return (Math.round((num * t) + (decimals > 0 ? 1 : 0) * (Math.sign(num) * (10 / Math.pow(100, decimals)))) / t).toFixed(decimals);
     }
 
-    // adjusts font-size based on a maxWidth or maxHeight
-    fontSize (text, maxWidth, maxHeight)
+    /**
+     * calculate ideal font size
+     * @param {string} text (use maximum-sized text)
+     * @param {number} maxWidth
+     * @param {number} [maxHeight]
+     * @param {string} [fontFamily]
+     */
+    fontSize(text, maxWidth, maxHeight, fontFamily)
     {
         if (!this.fontDummy)
         {
@@ -101,7 +107,7 @@ class Misc
             this.fontDummy.style.float = 'left';
             this.fontDummy.style.whiteSpace = 'no-wrap';
             this.fontDummy.style.visibility = 'hidden';
-            this.fontDummy.style.fontFamily = 'Open Sans';
+            this.fontDummy.style.fontFamily = fontFamily || 'Open Sans';
             document.body.appendChild(this.fontDummy);
         }
         var size = 1;

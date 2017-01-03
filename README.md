@@ -15,6 +15,7 @@ include misc.js in your project or add to your workflow
     * [.arraySmallest(a)](#Misc+arraySmallest) ⇒ <code>number</code>
     * [.sameSign(a, b)](#Misc+sameSign)
     * [.preciseRound(num, decimals)](#Misc+preciseRound) ⇒ <code>number</code>
+    * [.fontSize(text, maxWidth, [maxHeight], [fontFamily])](#Misc+fontSize)
     * [.wordCount(text)](#Misc+wordCount) ⇒ <code>number</code>
     * [.aboutEqual(test, value, percent)](#Misc+aboutEqual) ⇒ <code>boolean</code>
     * [.uniqueArray(a)](#Misc+uniqueArray) ⇒ <code>Array</code>
@@ -79,6 +80,20 @@ round number to certain number of decimals
 | --- | --- |
 | num | <code>number</code> | 
 | decimals | <code>number</code> | 
+
+<a name="Misc+fontSize"></a>
+
+### misc.fontSize(text, maxWidth, [maxHeight], [fontFamily])
+calculate ideal font size
+
+**Kind**: instance method of <code>[Misc](#Misc)</code>  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| text | <code>string</code> | (use maximum-sized text) |
+| maxWidth | <code>number</code> |  |
+| [maxHeight] | <code>number</code> |  |
+| [fontFamily] | <code>string</code> |  |
 
 <a name="Misc+wordCount"></a>
 
